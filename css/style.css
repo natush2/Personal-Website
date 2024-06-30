@@ -1,0 +1,285 @@
+@import url(../css/reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap");
+
+[class*="__container"] {
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: clip;
+
+  background-color: #f8f8f8;
+  font-family: "Playwrite IT Moderna", sans-serif;
+  color: #535353;
+}
+
+.container {
+  max-width: 1000px;
+  box-shadow: 0px 0px 10px 2px #00000073;
+  max-width: 1300px;
+  padding: 0 15px;
+  margin: 0 auto;
+  min-height: 1000px;
+}
+
+/* ===================================================================== */
+/* HEADER */
+
+.header--margin {
+  margin-bottom: 50px;
+}
+
+.header {
+  min-height: 100px;
+  text-align: center;
+  padding: 20px 0;
+  padding: 25px 0;
+  /* box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.218); */
+  font-size: 20px;
+}
+
+.nav__items {
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px 15px;
+  margin: 0 auto;
+}
+
+.social-items {
+  /* padding: 10px; */
+  display: flex;
+  gap: 10px;
+}
+
+.social-items__link {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 4px;
+  /* display: block; */
+}
+
+.social-items__link--blue {
+  background-color: #0866ff;
+}
+
+img .social-items__link {
+  width: 100%;
+  /* height: 40px; */
+  /* width: 40px;
+  height: 40px; */
+  object-fit: cover;
+  /* display: block; */
+}
+
+/* ===================================================================== */
+/* MAIN */
+
+.main__about-my {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  /* align-items: center; */
+}
+
+.about-my__name {
+  max-width: 700px;
+  font-weight: 400;
+  border-radius: 50%;
+  display: block;
+  padding: 40px 0 50px 0;
+  text-align: center;
+  color: #1e1e1e;
+  line-height: 1.2;
+  margin: 0 auto;
+  /* border: 1px solid #000; */
+  /* box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.17); */
+}
+
+.name__greeting {
+  font-size: 50px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.name__title {
+  font-size: 26px;
+}
+
+.name__title::after {
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 212, 255, 0.9663515064228817) 50%,
+    rgba(9, 9, 121, 1) 100%
+  );
+  height: 5px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.name__title:hover::after {
+  /* content: ""; */
+  background: linear-gradient(
+    90deg,
+    rgba(252, 11, 234, 1) 0%,
+    rgba(252, 70, 107, 1) 50%,
+    rgba(252, 11, 234, 1) 100%
+  );
+  /* height: 5px;
+  width: 100%; */
+}
+
+/* Порядок запису властивостей:
+
+- `**animation-name**` - імя анімації
+- `**animation-duration**` - тпивалість анімації
+- `**animation-timing-function**` - сценарій розвитку анімації між ключовими кадрами
+- `**animation-iteration-count**` - скільки разів програвати анімацію. За замовчуванням 1 раз. Також є значення infinite — нескінченно
+- `**animation-direction**` -напрямок та тип відтворення ключових кадрів
+**Значення:**
+- normal*** — за замовченням, програвання від 0% до 100%;
+- reverse*** — зі 100% до 0%;
+- alternate*** — починає з 0%, доходить до кінця, повертається до 0% і так по колу. Тобто анімація іде у двох напрямках (вперед та назад), а не починається знову. Гарний варіант, щоб замкнути анімацію.
+- alternate-reverse** — те саме що й **alternate**, тільки анімація почнеться зі 100%.*
+- `**animation-play-state**` - дозволяє запускати або зупиняти анімацію за подією. running — за замовченням, тобто анімація іде. paused — зупинити анімацію
+- `**animation-delay**` -затримку перед відтворенням. значення за замовчуванням 0s
+- `**animation-fill-mode**` - які значення анімованих css властивостей застосовуються до об'єкта після завершення анімації 
+**Значення: animation-fill-mode
+- none*** — нічого не використовується;
+- forwards*** — коли анімація закінчилась, то засовуються кінцеві властивості (в 100%);
+- backwards*** — початкові значення (0%);
+- both*** — початкові значення об'єкта + кінцеві значення анімації.
+*/
+
+.about-my__languages {
+  /* max-width: 700px; */
+  font-size: 28px;
+  font-weight: 400;
+  position: absolute;
+  animation-name: moving;
+  animation-duration: 20s, 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0s;
+  animation-fill-mode: none;
+  /* animation: moving 20s linear 0s infinite alternate none; */
+  /* animation: moving 20s linear infinite normal 0s forwards; */
+  /* animation: moving 20s linear 0s infinite normal forwards; */
+}
+
+@media (any-hover: hover) {
+  .about-my__languages:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes moving {
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+  5% {
+    top: 50px;
+    left: 50px;
+    color: #0866ff;
+  }
+  10% {
+    top: 100px;
+    left: 100px;
+  }
+  15% {
+    top: 150px;
+    left: 150px;
+    color: yellow;
+  }
+  20% {
+    top: 200px;
+    left: 200px;
+    /* color: #186130; */
+  }
+  25% {
+    top: 250px;
+    left: 250px;
+    color: #f20a0a;
+  }
+  30% {
+    top: 300px;
+    left: 300px;
+  }
+  35% {
+    top: 350px;
+    left: 350px;
+    color: #146996;
+  }
+  /* 40% {
+    top: 370px;
+    left: 370px;
+  } */
+  /* 45% {
+    top: 380px;
+    left: 400px;
+    color: #4d89e9;
+  } */
+  50% {
+    top: 400px;
+    left: 450px;
+    color: #46820d;
+    /* color: #128c7a; */
+  }
+  /* 55% {
+    top: 380px;
+    left: 500px;
+    color: #7c0f61;
+  } */
+  /* 60% {
+    top: 370px;
+    left: 530px;
+    color: #18a1c4;
+  } */
+  65% {
+    top: 350px;
+    left: 550px;
+  }
+  70% {
+    top: 300px;
+    left: 600px;
+    color: #c8670c;
+    /* color: #109209; */
+  }
+  75% {
+    top: 250px;
+    left: 650px;
+    /* color: #a2ba1c; */
+  }
+  80% {
+    top: 200px;
+    left: 700px;
+    color: #470c12;
+  }
+  85% {
+    top: 150px;
+    left: 750px;
+  }
+  90% {
+    top: 100px;
+    left: 800px;
+    color: #457910;
+    /* color: #f12c2c; */
+  }
+
+  95% {
+    top: 50px;
+    left: 850px;
+    /* color: #0f9995; */
+  }
+
+  100% {
+    top: 0px;
+    left: 900px;
+    color: #cde138;
+  }
+}
